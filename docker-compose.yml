@@ -1,0 +1,21 @@
+version: '2'
+services:
+  app:
+    image: 248536655549.dkr.ecr.us-east-1.amazonaws.com/kffp-shop
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: kffp-shop
+        awslogs-region: us-east-1
+        awslogs-stream-prefix: kffpshopnode
+
+  nginx:
+    image: 248536655549.dkr.ecr.us-east-1.amazonaws.com/reverse-proxy
+    ports:
+      - 80:80
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: kffp-shop
+        awslogs-region: us-east-1
+        awslogs-stream-prefix: kffpshopnginx
