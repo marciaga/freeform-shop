@@ -25,4 +25,4 @@ deploy:
       branch: "master"
 
 after_deploy:
-  - echo "Application Deployed!"
+  - echo "Application deployed successfully"
