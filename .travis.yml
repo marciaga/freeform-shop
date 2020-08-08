@@ -1,19 +1,19 @@
 language: node_js
 node_js:
- - "12"
+  - "12"
 branches:
   only:
   - master
 before_script:
  - npm install
- script:
+script:
  - npm run build
- before_deploy:
+before_deploy:
  - cd $TRAVIS_BUILD_DIR
  - sed -i '/.next/d' .gitignore
  - git add . && git commit -m "latest build"
 deploy:
-  - provider: elasticbeanstalk
+    provider: elasticbeanstalk
     edge: true
     access_key_id: ${AWS_ACCESS_KEY_ID}
     secret_access_key: ${AWS_SECRET_ACCESS_KEY}
