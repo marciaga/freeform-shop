@@ -5,11 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 8080",
+    "start": "./node_modules/.bin/forever --minUptime 5000 ./node_modules/.bin/next start -p 8080",
     "lint": "./node_modules/.bin/eslint ."
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "forever": "^3.0.2",
     "next": "9.5.1",
     "ramda": "^0.27.1",
     "react": "16.13.1",
