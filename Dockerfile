@@ -1,6 +1,8 @@
 FROM node:12
 # Setting working directory. All the path will be relative to WORKDIR
 WORKDIR /usr/src/app
+# Install PM2 globally
+RUN npm install --global pm2
 # Installing dependencies
 COPY package*.json ./
 RUN npm install
@@ -8,7 +10,9 @@ RUN npm install
 COPY . .
 # Building app
 RUN npm run build
-EXPOSE 80
+
+EXPOSE 8080
+
 ENV NODE_ENV=production
-# Running the app
-CMD [ "npm", "start" ]
+# Run npm start script with PM2 when container starts
+CMD [ "pm2-runtime", "npm", "--", "start" ]

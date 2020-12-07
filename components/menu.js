@@ -6,7 +6,7 @@ export const TopMenu = () => (
       <Menu.Item header>
         Thank You Gifts
       </Menu.Item>
-      <Menu.Item href="/" as="a">Home</Menu.Item>
+      <Menu.Item href="https://www.freeformportland.org" as="a">Home</Menu.Item>
       <Menu.Item className="snipcart-checkout" href="#">
         <i className="shopping cart icon" />
       </Menu.Item>
